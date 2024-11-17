@@ -8,6 +8,8 @@ import pinoPretty from 'pino-pretty';
 const app = express();
 const logger = pino(pinoPretty());
 
+app.get('/', (req, res) => res.send('Home Page Route'));
+
 app.use(cors());
 app.use(
   bodyParser.json({
