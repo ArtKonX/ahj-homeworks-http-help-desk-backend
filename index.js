@@ -8,8 +8,6 @@ import pinoPretty from 'pino-pretty';
 const app = express();
 const logger = pino(pinoPretty());
 
-app.get('/', (req, res) => res.send('Home Page Route'));
-
 app.use(cors());
 app.use(
   bodyParser.json({
@@ -52,7 +50,7 @@ app.use(async (request, response) => {
   switch (method) {
     case "allTickets":
       logger.info('All tickets has been called');
-      response.send(JSON.stringify(tickets)).end();
+      response.send(JSON.stringify(tickets));
       break;
     case "ticketById": {
       const ticket = tickets.find((ticket) => ticket.id === id);
